@@ -1,0 +1,312 @@
+/* ===== Variáveis de cor e fonte ===== */
+:root {
+    --azul-escuro: #1d4f5f;
+    --azul-medio: #2b7186;
+    --azul-claro: #e6f1f4;
+    --amarelo: #f0b429;
+    --amarelo-escuro: #d99a0b;
+    --texto: #22313a;
+    --fundo: #f5f9fa;
+    --branco: #ffffff;
+    --borda: #c5d6dc;
+    --erro: #b3261e;
+    --sucesso: #1e7a4c;
+    --fonte-titulo: "Fredoka", "Trebuchet MS", sans-serif;
+    --fonte-texto: "Nunito", Arial, sans-serif;
+}
+
+/* ===== Base ===== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: var(--fonte-texto);
+    font-size: 1.05rem;
+    line-height: 1.65;
+    color: var(--texto);
+    background-color: var(--fundo);
+}
+
+.container {
+    width: 100%;
+    max-width: 960px;
+    margin: 0 auto;
+    padding: 0 1.25rem;
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--fonte-titulo);
+    line-height: 1.25;
+    color: var(--azul-escuro);
+}
+
+h2 {
+    font-size: 1.8rem;
+    margin-top: 0;
+}
+
+h3 {
+    font-size: 1.35rem;
+    margin-top: 0;
+}
+
+h4 {
+    font-size: 1rem;
+    margin-bottom: 0.25rem;
+}
+
+a {
+    color: var(--azul-medio);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--amarelo);
+    outline-offset: 2px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ===== Cabeçalho ===== */
+.site-header {
+    background-color: var(--azul-escuro);
+    padding: 2rem 0 1.25rem;
+}
+
+.site-header h1 {
+    margin: 0;
+    font-size: 2.6rem;
+    color: var(--amarelo);
+}
+
+.slogan {
+    margin: 0.25rem 0 1.25rem;
+    color: var(--branco);
+}
+
+/* ===== Menu de navegação ===== */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.75rem;
+}
+
+nav a {
+    display: inline-block;
+    padding: 0.5rem 1.1rem;
+    background-color: var(--azul-medio);
+    color: var(--branco);
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: 999px;
+    transition: background-color 0.2s;
+}
+
+nav a:hover {
+    background-color: var(--amarelo);
+    color: var(--azul-escuro);
+}
+
+nav a[aria-current="page"] {
+    background-color: var(--amarelo);
+    color: var(--azul-escuro);
+}
+
+/* ===== Conteúdo principal ===== */
+main {
+    padding-top: 2rem;
+    padding-bottom: 2rem;
+}
+
+main section {
+    margin-bottom: 2.5rem;
+}
+
+figure {
+    margin: 0;
+}
+
+figure img {
+    display: block;
+    width: 100%;
+    max-height: 420px;
+    object-fit: cover;
+    border-radius: 12px;
+}
+
+figcaption {
+    margin-top: 0.5rem;
+    font-size: 0.95rem;
+    color: var(--azul-medio);
+}
+
+/* ===== Chamada para ação ===== */
+.chamada {
+    background-color: var(--azul-claro);
+    border-left: 6px solid var(--amarelo);
+    border-radius: 8px;
+    padding: 1.5rem;
+}
+
+.botao {
+    display: inline-block;
+    padding: 0.75rem 1.5rem;
+    background-color: var(--amarelo);
+    color: var(--azul-escuro);
+    font-family: var(--fonte-texto);
+    font-size: 1rem;
+    font-weight: 700;
+    text-decoration: none;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.botao:hover {
+    background-color: var(--amarelo-escuro);
+}
+
+address {
+    font-style: normal;
+}
+
+address p {
+    margin: 0 0 0.25rem;
+}
+
+/* ===== Página de projetos ===== */
+.projetos {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+    gap: 1.25rem;
+    margin-top: 1.5rem;
+}
+
+.projetos article {
+    background-color: var(--branco);
+    border: 1px solid var(--borda);
+    border-top: 5px solid var(--azul-medio);
+    border-radius: 8px;
+    padding: 1.25rem;
+}
+
+.projetos ul {
+    margin: 0;
+    padding-left: 1.2rem;
+}
+
+/* ===== Formulário de cadastro ===== */
+form {
+    margin-top: 1.5rem;
+}
+
+fieldset {
+    background-color: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: 8px;
+    margin: 0 0 1.5rem;
+    padding: 1rem 1.25rem 1.25rem;
+}
+
+legend {
+    padding: 0 0.5rem;
+    font-family: var(--fonte-titulo);
+    font-size: 1.15rem;
+    color: var(--azul-escuro);
+}
+
+.campo {
+    margin-bottom: 1rem;
+}
+
+.campo label {
+    display: block;
+    margin-bottom: 0.25rem;
+    font-weight: 700;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: 0.6rem 0.75rem;
+    font-family: var(--fonte-texto);
+    font-size: 1rem;
+    color: var(--texto);
+    background-color: var(--branco);
+    border: 2px solid var(--borda);
+    border-radius: 6px;
+}
+
+input:user-invalid,
+select:user-invalid,
+textarea:user-invalid {
+    border-color: var(--erro);
+}
+
+input:user-valid {
+    border-color: var(--sucesso);
+}
+
+.obrigatorio {
+    color: var(--erro);
+}
+
+.opcoes {
+    margin-bottom: 1rem;
+}
+
+.opcoes label {
+    display: block;
+    margin-bottom: 0.4rem;
+}
+
+.sucesso {
+    margin-top: 1rem;
+    padding: 0.75rem 1rem;
+    color: var(--sucesso);
+    font-weight: 700;
+    background-color: #e4f4ec;
+    border-radius: 6px;
+}
+
+/* ===== Rodapé ===== */
+.site-footer {
+    background-color: var(--azul-escuro);
+    color: var(--branco);
+    padding: 1.25rem 0;
+    text-align: center;
+}
+
+.site-footer p {
+    margin: 0;
+}
+
+/* ===== Telas pequenas ===== */
+@media (max-width: 600px) {
+    .site-header h1 {
+        font-size: 2rem;
+    }
+
+    h2 {
+        font-size: 1.5rem;
+    }
+}
