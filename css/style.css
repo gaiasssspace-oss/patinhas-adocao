@@ -1,0 +1,457 @@
+/* ==========================================================
+   DESIGN SYSTEM - Patinhas Adoção
+   Todas as decisões visuais ficam nas variáveis abaixo.
+   Para mudar o visual do site, altere só este bloco.
+   ========================================================== */
+:root {
+    /* ----- Cores: primárias (identidade da ONG) ----- */
+    --azul-escuro: #1d4f5f;
+    --azul-medio: #2b7186;
+    --amarelo: #f0b429;
+    --amarelo-hover: #f7c948;
+
+    /* ----- Cores: secundárias (apoio e destaque) ----- */
+    --azul-claro: #e6f1f4;
+    --sucesso: #1e7a4c;
+    --sucesso-fundo: #e4f4ec;
+    --erro: #b3261e;
+
+    /* ----- Cores: neutras (texto, fundos e bordas) ----- */
+    --texto: #22313a;
+    --fundo: #f5f9fa;
+    --branco: #ffffff;
+    --borda: #c5d6dc;
+    --sombra: rgba(29, 79, 95, 0.15);
+
+    /* ----- Tipografia: famílias ----- */
+    --fonte-titulo: "Fredoka", "Trebuchet MS", sans-serif;
+    --fonte-texto: "Nunito", Arial, sans-serif;
+
+    /* ----- Tipografia: escala modular (razão 1,25 sobre 1rem) ----- */
+    --fs-xs: 0.875rem;   /* legendas e textos de apoio */
+    --fs-sm: 1rem;       /* texto corrido e h4 */
+    --fs-md: 1.25rem;    /* h3 e legendas de grupos */
+    --fs-lg: 1.563rem;   /* h2 em telas pequenas */
+    --fs-xl: 1.953rem;   /* h2 */
+    --fs-2xl: 2.441rem;  /* h1 */
+    --lh-texto: 1.65;
+    --lh-titulo: 1.25;
+
+    /* ----- Espaçamentos: escala modular baseada em 4px ----- */
+    --space-1: 0.25rem;  /* 4px */
+    --space-2: 0.5rem;   /* 8px */
+    --space-3: 1rem;     /* 16px */
+    --space-4: 1.5rem;   /* 24px */
+    --space-5: 2rem;     /* 32px */
+    --space-6: 3rem;     /* 48px */
+
+    /* ----- Bordas arredondadas ----- */
+    --raio-sm: 6px;
+    --raio-md: 8px;
+    --raio-lg: 12px;
+    --raio-pill: 999px;
+}
+
+/* ===== Base ===== */
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: var(--fonte-texto);
+    font-size: var(--fs-sm);
+    line-height: var(--lh-texto);
+    color: var(--texto);
+    background-color: var(--fundo);
+}
+
+.container {
+    width: 100%;
+    margin: 0 auto;
+    padding: 0 var(--space-3);
+}
+
+h1,
+h2,
+h3,
+h4 {
+    font-family: var(--fonte-titulo);
+    line-height: var(--lh-titulo);
+    color: var(--azul-escuro);
+}
+
+h2 {
+    font-size: var(--fs-lg);
+    margin-top: 0;
+}
+
+h3 {
+    font-size: var(--fs-md);
+    margin-top: 0;
+}
+
+h4 {
+    font-size: var(--fs-sm);
+    margin-bottom: var(--space-1);
+}
+
+a {
+    color: var(--azul-medio);
+}
+
+a:focus-visible,
+button:focus-visible,
+input:focus-visible,
+select:focus-visible,
+textarea:focus-visible {
+    outline: 3px solid var(--amarelo);
+    outline-offset: 2px;
+}
+
+img {
+    max-width: 100%;
+    height: auto;
+}
+
+/* ===== Cabeçalho ===== */
+.site-header {
+    background-color: var(--azul-escuro);
+    padding: var(--space-5) 0 var(--space-3);
+}
+
+.site-header h1 {
+    margin: 0;
+    font-size: var(--fs-xl);
+    color: var(--amarelo);
+}
+
+.slogan {
+    margin: var(--space-1) 0 var(--space-3);
+    color: var(--branco);
+}
+
+/* ===== Menu de navegação ===== */
+nav ul {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-3);
+}
+
+nav a {
+    display: inline-block;
+    padding: var(--space-2) var(--space-3);
+    background-color: var(--azul-medio);
+    color: var(--branco);
+    text-decoration: none;
+    font-weight: 700;
+    border-radius: var(--raio-pill);
+    transition: background-color 0.2s;
+}
+
+nav a:hover {
+    background-color: var(--amarelo);
+    color: var(--azul-escuro);
+}
+
+nav a[aria-current="page"] {
+    background-color: var(--amarelo);
+    color: var(--azul-escuro);
+}
+
+/* ===== Conteúdo principal ===== */
+main {
+    padding-top: var(--space-5);
+    padding-bottom: var(--space-5);
+}
+
+main section {
+    margin-bottom: var(--space-6);
+}
+
+figure {
+    margin: 0;
+}
+
+figure img {
+    display: block;
+    width: 100%;
+    max-height: 420px;
+    object-fit: cover;
+    border-radius: var(--raio-lg);
+}
+
+figcaption {
+    margin-top: var(--space-2);
+    font-size: var(--fs-xs);
+    color: var(--azul-medio);
+}
+
+address {
+    font-style: normal;
+}
+
+address p {
+    margin: 0 0 var(--space-1);
+}
+
+/* ===== Chamada para ação ===== */
+.chamada {
+    background-color: var(--azul-claro);
+    border-left: 6px solid var(--amarelo);
+    border-radius: var(--raio-md);
+    padding: var(--space-4);
+}
+
+.botao {
+    display: inline-block;
+    padding: var(--space-3) var(--space-4);
+    background-color: var(--amarelo);
+    color: var(--azul-escuro);
+    font-family: var(--fonte-texto);
+    font-size: var(--fs-sm);
+    font-weight: 700;
+    text-decoration: none;
+    border: none;
+    border-radius: var(--raio-md);
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.botao:hover {
+    background-color: var(--amarelo-hover);
+}
+
+/* ===== Página de projetos ===== */
+.projetos {
+    margin-top: var(--space-4);
+}
+
+.projetos article {
+    background-color: var(--branco);
+    border: 1px solid var(--borda);
+    border-top: 5px solid var(--azul-medio);
+    border-radius: var(--raio-md);
+    padding: var(--space-4);
+    box-shadow: 0 2px 8px var(--sombra);
+}
+
+.projetos ul {
+    margin: 0;
+    padding-left: var(--space-4);
+}
+
+/* ===== Formulário de cadastro ===== */
+form {
+    margin-top: var(--space-4);
+}
+
+fieldset {
+    min-width: 0;
+    background-color: var(--branco);
+    border: 1px solid var(--borda);
+    border-radius: var(--raio-md);
+    margin: 0 0 var(--space-4);
+    padding: var(--space-3) var(--space-4) var(--space-4);
+}
+
+legend {
+    padding: 0 var(--space-2);
+    font-family: var(--fonte-titulo);
+    font-size: var(--fs-md);
+    color: var(--azul-escuro);
+}
+
+.campo {
+    margin-bottom: var(--space-3);
+}
+
+.campo label {
+    display: block;
+    margin-bottom: var(--space-1);
+    font-weight: 700;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="tel"],
+input[type="date"],
+select,
+textarea {
+    width: 100%;
+    padding: var(--space-2) var(--space-3);
+    font-family: var(--fonte-texto);
+    font-size: var(--fs-sm);
+    color: var(--texto);
+    background-color: var(--branco);
+    border: 2px solid var(--borda);
+    border-radius: var(--raio-sm);
+}
+
+input:user-invalid,
+select:user-invalid,
+textarea:user-invalid {
+    border-color: var(--erro);
+}
+
+input:user-valid {
+    border-color: var(--sucesso);
+}
+
+.obrigatorio {
+    color: var(--erro);
+}
+
+.opcoes {
+    margin-bottom: var(--space-3);
+}
+
+.opcoes label {
+    display: block;
+    margin-bottom: var(--space-2);
+}
+
+.sucesso {
+    margin-top: var(--space-3);
+    padding: var(--space-3);
+    color: var(--sucesso);
+    font-weight: 700;
+    background-color: var(--sucesso-fundo);
+    border-radius: var(--raio-sm);
+}
+
+/* ===== Rodapé ===== */
+.site-footer {
+    background-color: var(--azul-escuro);
+    color: var(--branco);
+    padding: var(--space-4) 0;
+    text-align: center;
+}
+
+.site-footer p {
+    margin: 0;
+}
+
+/* ==========================================================
+   SISTEMA DE GRID - 12 colunas
+   Uso: <div class="grid"> com filhos "col-12 col-md-6 col-xl-3".
+   col-12 vale para todas as telas (mobile first); os prefixos
+   sm, md, lg, xl e xxl mudam o número de colunas a partir de
+   cada breakpoint.
+   ========================================================== */
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, minmax(0, 1fr));
+    gap: var(--space-4);
+}
+
+.grid > * {
+    margin-bottom: 0;
+}
+
+.col-12 {
+    grid-column: span 12;
+}
+
+/* ==========================================================
+   BREAKPOINTS (mobile first, com min-width)
+   1) 480px  - celulares grandes
+   2) 768px  - tablets
+   3) 1024px - notebooks
+   4) 1280px - desktops
+   5) 1536px - telas largas
+   ========================================================== */
+/* Breakpoint 1: 480px */
+@media (min-width: 480px) {
+    .container {
+        padding: 0 var(--space-4);
+    }
+
+    .site-header h1 {
+        font-size: var(--fs-2xl);
+    }
+
+    .col-sm-3 { grid-column: span 3; }
+    .col-sm-4 { grid-column: span 4; }
+    .col-sm-5 { grid-column: span 5; }
+    .col-sm-6 { grid-column: span 6; }
+    .col-sm-7 { grid-column: span 7; }
+    .col-sm-8 { grid-column: span 8; }
+    .col-sm-12 { grid-column: span 12; }
+}
+
+/* Breakpoint 2: 768px */
+@media (min-width: 768px) {
+    h2 {
+        font-size: var(--fs-xl);
+    }
+
+    .site-header {
+        padding-top: var(--space-6);
+    }
+
+    .col-md-3 { grid-column: span 3; }
+    .col-md-4 { grid-column: span 4; }
+    .col-md-5 { grid-column: span 5; }
+    .col-md-6 { grid-column: span 6; }
+    .col-md-7 { grid-column: span 7; }
+    .col-md-8 { grid-column: span 8; }
+    .col-md-12 { grid-column: span 12; }
+}
+
+/* Breakpoint 3: 1024px */
+@media (min-width: 1024px) {
+    .container {
+        max-width: 960px;
+    }
+
+    .chamada {
+        padding: var(--space-5);
+    }
+
+    .col-lg-3 { grid-column: span 3; }
+    .col-lg-4 { grid-column: span 4; }
+    .col-lg-5 { grid-column: span 5; }
+    .col-lg-6 { grid-column: span 6; }
+    .col-lg-7 { grid-column: span 7; }
+    .col-lg-8 { grid-column: span 8; }
+    .col-lg-12 { grid-column: span 12; }
+}
+
+/* Breakpoint 4: 1280px */
+@media (min-width: 1280px) {
+    .container {
+        max-width: 1140px;
+    }
+
+    .col-xl-3 { grid-column: span 3; }
+    .col-xl-4 { grid-column: span 4; }
+    .col-xl-5 { grid-column: span 5; }
+    .col-xl-6 { grid-column: span 6; }
+    .col-xl-7 { grid-column: span 7; }
+    .col-xl-8 { grid-column: span 8; }
+    .col-xl-12 { grid-column: span 12; }
+}
+
+/* Breakpoint 5: 1536px */
+@media (min-width: 1536px) {
+    .container {
+        max-width: 1320px;
+    }
+
+    main {
+        padding-top: var(--space-6);
+        padding-bottom: var(--space-6);
+    }
+
+    .col-xxl-3 { grid-column: span 3; }
+    .col-xxl-4 { grid-column: span 4; }
+    .col-xxl-5 { grid-column: span 5; }
+    .col-xxl-6 { grid-column: span 6; }
+    .col-xxl-7 { grid-column: span 7; }
+    .col-xxl-8 { grid-column: span 8; }
+    .col-xxl-12 { grid-column: span 12; }
+}
