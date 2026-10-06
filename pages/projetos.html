@@ -16,9 +16,19 @@
             <h1>Patinhas Adoção</h1>
             <p class="slogan">Conectando animais abandonados a lares cheios de amor e cuidado.</p>
             <nav aria-label="Menu principal">
-                <ul>
+                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <label for="menu-toggle" class="menu-botao"><span class="menu-icone" aria-hidden="true"></span>Menu</label>
+                <ul class="menu-lista">
                     <li><a href="../index.html">Início</a></li>
-                    <li><a href="projetos.html" aria-current="page">Projetos</a></li>
+                    <li class="tem-submenu">
+                        <a href="projetos.html" aria-current="page">Projetos</a>
+                        <ul class="submenu">
+                            <li><a href="projetos.html#resgate">Resgate de animais</a></li>
+                            <li><a href="projetos.html#feira">Feira de adoção</a></li>
+                            <li><a href="projetos.html#castracao">Castração solidária</a></li>
+                            <li><a href="projetos.html#lar-temporario">Lar temporário</a></li>
+                        </ul>
+                    </li>
                     <li><a href="cadastro.html">Cadastro</a></li>
                 </ul>
             </nav>
@@ -31,7 +41,7 @@
             <p>Cada iniciativa da Patinhas Adoção nasce de uma necessidade real dos animais e da comunidade. Conheça o que fazemos e descubra como participar.</p>
 
             <div class="projetos grid">
-                <article class="col-12 col-md-6 col-xl-3">
+                <article id="resgate" class="col-12 col-md-6 col-xl-3">
                     <h3>Resgate de animais</h3>
                     <p>Nossa equipe atende denúncias de abandono e maus-tratos em São Paulo, recolhe cães e gatos em situação de risco e leva cada um para avaliação veterinária.</p>
                     <h4>Como participar</h4>
@@ -42,7 +52,7 @@
                     </ul>
                 </article>
 
-                <article class="col-12 col-md-6 col-xl-3">
+                <article id="feira" class="col-12 col-md-6 col-xl-3">
                     <h3>Feira de adoção</h3>
                     <p>Aos sábados, os animais prontos para adoção ficam em um espaço aberto ao público, onde as famílias podem conhecê-los, brincar e conversar com a equipe.</p>
                     <h4>Como participar</h4>
@@ -53,7 +63,7 @@
                     </ul>
                 </article>
 
-                <article class="col-12 col-md-6 col-xl-3">
+                <article id="castracao" class="col-12 col-md-6 col-xl-3">
                     <h3>Castração solidária</h3>
                     <p>Campanha com preço acessível ou gratuita para tutores de baixa renda. A castração é uma das formas mais eficazes de reduzir o abandono.</p>
                     <h4>Como participar</h4>
@@ -64,7 +74,7 @@
                     </ul>
                 </article>
 
-                <article class="col-12 col-md-6 col-xl-3">
+                <article id="lar-temporario" class="col-12 col-md-6 col-xl-3">
                     <h3>Lar temporário</h3>
                     <p>Voluntários recebem um animal em casa até que ele seja adotado. Nós fornecemos ração e acompanhamento veterinário durante todo o período.</p>
                     <h4>Como participar</h4>

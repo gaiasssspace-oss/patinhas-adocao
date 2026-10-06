@@ -16,9 +16,19 @@
             <h1>Patinhas Adoção</h1>
             <p class="slogan">Conectando animais abandonados a lares cheios de amor e cuidado.</p>
             <nav aria-label="Menu principal">
-                <ul>
+                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <label for="menu-toggle" class="menu-botao"><span class="menu-icone" aria-hidden="true"></span>Menu</label>
+                <ul class="menu-lista">
                     <li><a href="../index.html">Início</a></li>
-                    <li><a href="projetos.html">Projetos</a></li>
+                    <li class="tem-submenu">
+                        <a href="projetos.html">Projetos</a>
+                        <ul class="submenu">
+                            <li><a href="projetos.html#resgate">Resgate de animais</a></li>
+                            <li><a href="projetos.html#feira">Feira de adoção</a></li>
+                            <li><a href="projetos.html#castracao">Castração solidária</a></li>
+                            <li><a href="projetos.html#lar-temporario">Lar temporário</a></li>
+                        </ul>
+                    </li>
                     <li><a href="cadastro.html" aria-current="page">Cadastro</a></li>
                 </ul>
             </nav>

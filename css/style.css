@@ -162,6 +162,139 @@ nav a[aria-current="page"] {
     color: var(--azul-escuro);
 }
 
+/* ==========================================================
+   MENU RESPONSIVO (dropdown + hambúrguer), sem JavaScript
+   Celular (< 768px): a lista fica escondida; o botão hambúrguer
+   (label) marca um checkbox escondido e o seletor :checked
+   mostra a lista.
+   Telas a partir de 768px: menu horizontal; o submenu abre com
+   :hover e :focus-within (funciona também pelo teclado).
+   ========================================================== */
+.site-header {
+    position: relative;
+    z-index: 20;
+}
+
+.menu-toggle {
+    position: absolute;
+    opacity: 0;
+    width: 1px;
+    height: 1px;
+}
+
+.menu-botao {
+    display: inline-flex;
+    align-items: center;
+    gap: var(--space-2);
+    padding: var(--space-2) var(--space-3);
+    background-color: var(--azul-medio);
+    color: var(--branco);
+    font-weight: 700;
+    border-radius: var(--raio-pill);
+    cursor: pointer;
+}
+
+.menu-icone::before {
+    content: "\2630"; /* ícone hambúrguer */
+}
+
+.menu-toggle:checked + .menu-botao .menu-icone::before {
+    content: "\2715"; /* ícone de fechar */
+}
+
+.menu-toggle:focus-visible + .menu-botao {
+    outline: 3px solid var(--amarelo);
+    outline-offset: 2px;
+}
+
+.menu-lista {
+    display: none;
+    flex-direction: column;
+    margin-top: var(--space-3);
+}
+
+.menu-toggle:checked ~ .menu-lista {
+    display: flex;
+}
+
+.menu-lista > li > a {
+    display: block;
+}
+
+.submenu {
+    flex-direction: column;
+    gap: var(--space-2);
+    margin-top: var(--space-2);
+    padding-left: var(--space-4);
+}
+
+.submenu a {
+    display: block;
+    font-size: var(--fs-xs);
+}
+
+@media (min-width: 768px) {
+    .menu-toggle,
+    .menu-botao {
+        display: none;
+    }
+
+    .menu-lista {
+        display: flex;
+        flex-direction: row;
+        margin-top: 0;
+    }
+
+    .menu-lista > li > a {
+        display: inline-block;
+    }
+
+    .tem-submenu {
+        position: relative;
+    }
+
+    .tem-submenu > a::after {
+        content: " \25BE"; /* seta para baixo */
+    }
+
+    .submenu {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        min-width: 230px;
+        margin: 0;
+        padding: var(--space-2);
+        gap: var(--space-1);
+        background-color: var(--branco);
+        border: 1px solid var(--borda);
+        border-radius: var(--raio-md);
+        box-shadow: 0 4px 12px var(--sombra);
+        opacity: 0;
+        visibility: hidden;
+        transform: translateY(-8px);
+        transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+    }
+
+    .tem-submenu:hover > .submenu,
+    .tem-submenu:focus-within > .submenu {
+        opacity: 1;
+        visibility: visible;
+        transform: translateY(0);
+    }
+
+    .submenu a {
+        background-color: transparent;
+        color: var(--azul-escuro);
+        border-radius: var(--raio-sm);
+    }
+
+    .submenu a:hover,
+    .submenu a:focus-visible {
+        background-color: var(--azul-claro);
+        color: var(--azul-escuro);
+    }
+}
+
 /* ===== Conteúdo principal ===== */
 main {
     padding-top: var(--space-5);
@@ -237,6 +370,12 @@ address p {
     border-radius: var(--raio-md);
     padding: var(--space-4);
     box-shadow: 0 2px 8px var(--sombra);
+    display: flex;
+    flex-direction: column;
+}
+
+.projetos article p {
+    flex-grow: 1;
 }
 
 .projetos ul {
@@ -306,12 +445,16 @@ input:user-valid {
 }
 
 .opcoes {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2) var(--space-4);
     margin-bottom: var(--space-3);
 }
 
 .opcoes label {
-    display: block;
-    margin-bottom: var(--space-2);
+    display: flex;
+    align-items: center;
+    gap: var(--space-2);
 }
 
 .sucesso {
@@ -329,6 +472,12 @@ input:user-valid {
     color: var(--branco);
     padding: var(--space-4) 0;
     text-align: center;
+}
+
+.site-footer .container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
 }
 
 .site-footer p {
