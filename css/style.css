@@ -162,6 +162,10 @@ nav a[aria-current="page"] {
     color: var(--azul-escuro);
 }
 
+nav a:focus-visible {
+    outline-color: var(--branco);
+}
+
 /* ==========================================================
    MENU RESPONSIVO (dropdown + hambúrguer), sem JavaScript
    Celular (< 768px): a lista fica escondida; o botão hambúrguer
@@ -351,11 +355,31 @@ address p {
     border: none;
     border-radius: var(--raio-md);
     cursor: pointer;
-    transition: background-color 0.2s;
+    transition: background-color 0.2s, transform 0.2s, box-shadow 0.2s;
 }
 
 .botao:hover {
     background-color: var(--amarelo-hover);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 10px var(--sombra);
+}
+
+.botao:active {
+    background-color: var(--amarelo);
+    transform: translateY(0);
+    box-shadow: none;
+}
+
+.botao:focus-visible {
+    outline-color: var(--azul-escuro);
+}
+
+.botao:disabled,
+.botao[aria-disabled="true"] {
+    opacity: 0.5;
+    cursor: not-allowed;
+    transform: none;
+    box-shadow: none;
 }
 
 /* ===== Página de projetos ===== */
@@ -428,16 +452,28 @@ textarea {
     background-color: var(--branco);
     border: 2px solid var(--borda);
     border-radius: var(--raio-sm);
+    transition: border-color 0.2s, box-shadow 0.2s;
+}
+
+input:focus,
+select:focus,
+textarea:focus {
+    border-color: var(--azul-medio);
+    box-shadow: 0 0 0 3px var(--azul-claro);
 }
 
 input:user-invalid,
 select:user-invalid,
 textarea:user-invalid {
     border-color: var(--erro);
+    box-shadow: 0 0 0 1px var(--erro);
 }
 
-input:user-valid {
+input:user-valid,
+select:user-valid,
+textarea:user-valid {
     border-color: var(--sucesso);
+    box-shadow: 0 0 0 1px var(--sucesso);
 }
 
 .obrigatorio {
@@ -464,6 +500,178 @@ input:user-valid {
     font-weight: 700;
     background-color: var(--sucesso-fundo);
     border-radius: var(--raio-sm);
+}
+
+/* ==========================================================
+   COMPONENTES DE FEEDBACK: badges, alertas e toast
+   Usam só as cores do Design System (variáveis do :root).
+   ========================================================== */
+
+/* ----- Badges (etiquetas de categoria) ----- */
+.badges {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-2);
+    margin-bottom: var(--space-3);
+}
+
+.badge {
+    display: inline-block;
+    padding: var(--space-1) var(--space-2);
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    line-height: 1.3;
+    border-radius: var(--raio-pill);
+}
+
+.badge-info {
+    background-color: var(--azul-claro);
+    color: var(--azul-escuro);
+}
+
+.badge-sucesso {
+    background-color: var(--sucesso-fundo);
+    color: var(--sucesso);
+}
+
+.badge-alerta {
+    background-color: var(--amarelo);
+    color: var(--azul-escuro);
+}
+
+.badge-erro {
+    background-color: var(--erro);
+    color: var(--branco);
+}
+
+/* ----- Caixas de alerta (ícone + borda, para não depender só da cor) ----- */
+.alerta {
+    margin: 0 0 var(--space-4);
+    padding: var(--space-3) var(--space-4);
+    color: var(--texto);
+    background-color: var(--branco);
+    border: 1px solid var(--borda);
+    border-left-width: 6px;
+    border-radius: var(--raio-md);
+}
+
+.alerta::before {
+    margin-right: var(--space-2);
+    font-weight: 700;
+}
+
+.alerta-info {
+    background-color: var(--azul-claro);
+    border-color: var(--azul-medio);
+}
+
+.alerta-info::before {
+    content: "\2139";
+    color: var(--azul-medio);
+}
+
+.alerta-sucesso {
+    background-color: var(--sucesso-fundo);
+    border-color: var(--sucesso);
+}
+
+.alerta-sucesso::before {
+    content: "\2714";
+    color: var(--sucesso);
+}
+
+.alerta-aviso {
+    border-color: var(--amarelo);
+}
+
+.alerta-aviso::before {
+    content: "\26A0";
+    color: var(--azul-escuro);
+}
+
+.alerta-erro {
+    border-color: var(--erro);
+}
+
+.alerta-erro::before {
+    content: "\2716";
+    color: var(--erro);
+}
+
+/* ----- Toast (notificação que aparece e some sozinha) ----- */
+.toast {
+    position: fixed;
+    right: var(--space-4);
+    bottom: var(--space-4);
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    gap: var(--space-3);
+    max-width: calc(100% - 2 * var(--space-4));
+    padding: var(--space-3) var(--space-4);
+    color: var(--branco);
+    background-color: var(--azul-escuro);
+    border-left: 6px solid var(--amarelo);
+    border-radius: var(--raio-md);
+    box-shadow: 0 8px 24px var(--sombra);
+    animation: toast-entrada 0.3s ease;
+}
+
+.toast[hidden] {
+    display: none;
+}
+
+.toast p {
+    margin: 0;
+}
+
+.toast-fechar {
+    padding: 0 var(--space-2);
+    font-size: var(--fs-md);
+    line-height: 1;
+    color: var(--branco);
+    background: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+@keyframes toast-entrada {
+    from {
+        opacity: 0;
+        transform: translateY(16px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ----- Estados de validação do campo (classes aplicadas pelo JavaScript) ----- */
+.campo-mensagem {
+    display: block;
+    margin-top: var(--space-1);
+    font-size: var(--fs-xs);
+    font-weight: 700;
+    color: var(--erro);
+}
+
+.campo-mensagem::before {
+    content: "\2716\00a0";
+}
+
+.campo-erro input,
+.campo-erro select,
+.campo-erro textarea {
+    border-color: var(--erro);
+    box-shadow: 0 0 0 1px var(--erro);
+}
+
+.campo-ok input,
+.campo-ok select,
+.campo-ok textarea {
+    border-color: var(--sucesso);
+    box-shadow: 0 0 0 1px var(--sucesso);
 }
 
 /* ===== Rodapé ===== */
@@ -603,4 +811,27 @@ input:user-valid {
     .col-xxl-7 { grid-column: span 7; }
     .col-xxl-8 { grid-column: span 8; }
     .col-xxl-12 { grid-column: span 12; }
+}
+
+/* ==========================================================
+   SPA: transição entre páginas e foco do contêiner principal
+   ========================================================== */
+#app:focus {
+    outline: none;
+}
+
+.pagina {
+    animation: pagina-entrada 0.3s ease;
+}
+
+@keyframes pagina-entrada {
+    from {
+        opacity: 0;
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
 }

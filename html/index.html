@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Patinhas Adoção: ONG de resgate e adoção de cães e gatos em São Paulo. Conheça nosso trabalho e faça parte.">
+    <title>Patinhas Adoção</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@500;600&family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../css/style.css">
+</head>
+<body>
+    <header class="site-header">
+        <div class="container">
+            <h1>Patinhas Adoção</h1>
+            <p class="slogan">Conectando animais abandonados a lares cheios de amor e cuidado.</p>
+            <nav aria-label="Menu principal">
+                <input type="checkbox" id="menu-toggle" class="menu-toggle">
+                <label for="menu-toggle" class="menu-botao"><span class="menu-icone" aria-hidden="true"></span>Menu</label>
+                <ul class="menu-lista">
+                    <li><a href="#/" data-rota="/">Início</a></li>
+                    <li class="tem-submenu">
+                        <a href="#/projetos" data-rota="/projetos">Projetos</a>
+                        <ul class="submenu">
+                            <li><a href="#/projetos/resgate">Resgate de animais</a></li>
+                            <li><a href="#/projetos/feira">Feira de adoção</a></li>
+                            <li><a href="#/projetos/castracao">Castração solidária</a></li>
+                            <li><a href="#/projetos/lar-temporario">Lar temporário</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#/cadastro" data-rota="/cadastro">Cadastro</a></li>
+                </ul>
+            </nav>
+        </div>
+    </header>
+
+    <main id="app" class="container" tabindex="-1">
+        <noscript>
+            <p>Este site precisa do JavaScript ativado para mostrar o conteúdo.</p>
+        </noscript>
+    </main>
+
+    <footer class="site-footer">
+        <div class="container">
+            <p>&copy; 2026 Patinhas Adoção. São Paulo, SP.</p>
+        </div>
+    </footer>
+
+    <div id="toast" class="toast" role="status" aria-live="polite" hidden>
+        <p>Cadastro enviado! Obrigado por fazer parte da Patinhas Adoção.</p>
+        <button type="button" class="toast-fechar" aria-label="Fechar notificação">&times;</button>
+    </div>
+
+    <script src="../js/dados.js"></script>
+    <script src="../js/templates.js"></script>
+    <script src="../js/formulario.js"></script>
+    <script src="../js/router.js"></script>
+</body>
+</html>
